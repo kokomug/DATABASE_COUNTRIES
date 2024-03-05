@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploymentkhalid
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: countries-khalid  
+  template:
+    metadata:
+      labels:
+        app: countries-khalid  
+    spec:
+      containers:
+      - name: kokodb
+        image: kokodb.azurecr.io/databasecountries:latest
+        env:
+          - name: CosmosConnectionString
+            valueFrom:
+              secretKeyRef:
+                name: cosmosdb-secret
+                key: connectionString
+          - name: APP_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: configkhalid
+                key: app_port
+      imagePullSecrets:
+      - name: acr-secret

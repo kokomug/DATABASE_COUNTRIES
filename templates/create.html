@@ -1,0 +1,53 @@
+<!-- create.html -->
+
+{% extends "base.html" %}
+
+{% block title %}Create New Country{% endblock title %}
+
+{% block content %}
+    <h1>Create New Country</h1>
+
+    <form action="{{ url_for('create') }}" method="post">
+
+        <label for="_id">ID:</label>
+        <input type="text" name="_id" required><br> 
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br>
+
+        <label for="capital">Capital:</label>
+        <input type="text" name="capital" required><br>
+
+        <label for="population">Population:</label>
+        <input type="text" name="population" required><br>
+
+        <label for="continent">Continent:</label>
+        <input type="text" name="continent" required><br>
+
+        <label for="gnp">GNP:</label>
+        <input type="text" name="gnp" required><br>
+
+        <label for="governmentForm">Government Form:</label>
+        <input type="text" name="governmentForm" required><br>
+
+        <label for="headOfState">Head of State:</label>
+        <input type="text" name="headOfState" required><br>
+
+        <label for="lifeExpectancy">Life Expectancy:</label>
+        <input type="text" name="lifeExpectancy" required><br>
+
+        <label for="localName">Local Name:</label>
+        <input type="text" name="localName" required><br>
+
+        <label for="region">Region:</label>
+        <input type="text" name="region" required><br>
+
+        <label for="surfaceArea">Surface Area:</label>
+        <input type="text" name="surfaceArea" required><br>
+
+        <!-- Add other fields as needed -->
+
+        <button type="submit">Create</button>
+    </form>
+
+    <a href="{{ url_for('index') }}">Back to Countries List</a>
+{% endblock content %}

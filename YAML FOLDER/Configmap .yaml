@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configkhalid
+data:
+  app_port: "5000"
+
+

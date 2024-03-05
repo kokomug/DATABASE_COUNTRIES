@@ -1,0 +1,40 @@
+<!-- index.html -->
+
+{% extends "base.html" %}
+
+{% block title %}Countries List{% endblock title %}
+
+{% block content %}
+    <h1>Countries List</h1>
+
+    <a href="{{ url_for('create') }}"><button>Create New Country</button></a>
+
+    <ul>
+        {% for country in countries %}
+            <li>
+                <h2>{{ country["name"] }}</h2>
+                <ul>
+                    <li>ID: {{ country["_id"] }}</li>
+                    <li>Capital: {{ country["capital"] }}</li>
+                    <li>Population: {{ country["population"] }}</li>
+                    <li>Continent: {{ country["continent"] }}</li>
+                    <li>GNP: {{ country["gnp"] }}</li>
+                    <li>Government Form: {{ country["governmentForm"] }}</li>
+                    <li>Head of State: {{ country["headOfState"] }}</li>
+                    <li>Life Expectancy: {{ country["lifeExpectancy"] }}</li>
+                    <li>Local Name: {{ country["localName"] }}</li>
+                    <li>Region: {{ country["region"] }}</li>
+                    <li>Surface Area: {{ country["surfaceArea"] }}</li>
+                    <!-- Add other fields as needed -->
+                </ul>
+                <form method="GET" action="{{ url_for('update', country_id=country['_id']) }}" style="display:inline;">
+                    <button type="submit">Update</button>
+                </form>
+                <form method="post" action="{{ url_for('delete', country_id=country['_id']) }}" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}

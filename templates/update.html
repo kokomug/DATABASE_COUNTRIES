@@ -1,0 +1,52 @@
+<!-- update.html -->
+
+{% extends "base.html" %}
+
+{% block title %}Update Country{% endblock title %}
+
+{% block content %}
+    <h1>Update Country</h1>
+
+    <form action="{{ url_for('update', country_id=country['_id']) }}" method="POST">
+
+        <label for="_id">ID:</label>
+        <input type="text" name = "_id" value= "{{country['_id']}}"required><br>
+
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="{{ country['name'] }}" required><br>
+
+        <label for="capital">Capital:</label>
+        <input type="text" name="capital" value="{{ country['capital'] }}" required><br>
+
+        <label for="population">Population:</label>
+        <input type="text" name="population" value="{{ country['population'] }}" required><br>
+
+        <label for="continent">Continent:</label>
+        <input type="text" name="continent" value="{{ country['continent'] }}" required><br>
+
+        <label for="gnp">GNP:</label>
+        <input type="text" name="gnp" value="{{ country['gnp'] }}" required><br>
+
+        <label for="governmentForm">Government Form:</label>
+        <input type="text" name="governmentForm" value="{{ country['governmentForm'] }}" required><br>
+
+        <label for="headOfState">Head of State:</label>
+        <input type="text" name="headOfState" value="{{ country['headOfState'] }}" required><br>
+
+        <label for="lifeExpectancy">Life Expectancy:</label>
+        <input type="text" name="lifeExpectancy" value="{{ country['lifeExpectancy'] }}" required><br>
+
+        <label for="localName">Local Name:</label>
+        <input type="text" name="localName" value="{{ country['localName'] }}" required><br>
+
+        <label for="region">Region:</label>
+        <input type="text" name="region" value="{{ country['region'] }}" required><br>
+
+        <label for="surfaceArea">Surface Area:</label>
+        <input type="text" name="surfaceArea" value="{{ country['surfaceArea'] }}" required><br>
+
+        <button type="submit">Update</button>
+    </form>
+
+    <a href="{{ url_for('index') }}">Back to Countries List</a>
+{% endblock content %}
